@@ -5,9 +5,9 @@ using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
-using Wg = Wind.Graphics;
+using Wg = Aviary.Wind.Graphics;
 
-namespace Wind.GH.Effects
+namespace Aviary.Wind.GH
 {
     public class EffectBlur : GH_Component
     {
@@ -15,7 +15,7 @@ namespace Wind.GH.Effects
         /// Initializes a new instance of the BlurEffect class.
         /// </summary>
         public EffectBlur()
-          : base("Blur Effect", "Blur", "Description", "Display", "Graphics")
+          : base("Blur Effect", "Blur", "Add a blur effect", "Aviary 1", "Graphics")
         {
         }
 
@@ -72,7 +72,7 @@ namespace Wind.GH.Effects
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.EffectBlur24;
+                return Properties.Resources.EffectBlur;
             }
         }
 

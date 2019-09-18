@@ -5,9 +5,9 @@ using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
-using Wg = Wind.Graphics;
+using Wg = Aviary.Wind.Graphics;
 
-namespace Wind.GH.Effects
+namespace Aviary.Wind.GH
 {
     public class EffectShadow : GH_Component
     {
@@ -15,7 +15,7 @@ namespace Wind.GH.Effects
         /// Initializes a new instance of the ShadowEffect class.
         /// </summary>
         public EffectShadow()
-          : base("Shadow Effect", "Shadow", "Description", "Display", "Graphics")
+          : base("Shadow Effect", "Shadow", "Add a drop shadow effect", "Aviary 1", "Graphics")
         {
         }
 
@@ -85,7 +85,7 @@ namespace Wind.GH.Effects
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.EffectDropShadow24;
+                return Properties.Resources.EffectDropShadow;
             }
         }
 

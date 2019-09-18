@@ -9,13 +9,13 @@ using Wg = Aviary.Wind.Graphics;
 
 namespace Aviary.Wind.GH
 {
-    public class GraphicStroke : GH_Component
+    public class GraphicFillLinear : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GraphicStroke class.
+        /// Initializes a new instance of the GraphicFillLinear class.
         /// </summary>
-        public GraphicStroke()
-          : base("Stroke", "Stroke", "Set Stroke Properties", "Aviary 1", "Graphics")
+        public GraphicFillLinear()
+          : base("Linear Gradient Fill", "Linear", "Add a linear gradient fill", "Aviary 1", "Graphics")
         {
         }
 
@@ -24,7 +24,7 @@ namespace Aviary.Wind.GH
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.primary; }
+            get { return GH_Exposure.secondary; }
         }
 
         /// <summary>
@@ -34,10 +34,12 @@ namespace Aviary.Wind.GH
         {
             pManager.AddGenericParameter("Graphic", "G", "An optional Graphic object", GH_ParamAccess.item);
             pManager[0].Optional = true;
-            pManager.AddColourParameter("Stroke Color", "C", "The fill color for the graphic", GH_ParamAccess.item, Color.Black);
+            pManager.AddColourParameter("Gradient Colors", "C", "The gradient colors for the graphic", GH_ParamAccess.list, new List<Color> { Color.Black, Color.White });
             pManager[1].Optional = true;
-            pManager.AddNumberParameter("Weight", "W", "The Stroke weight", GH_ParamAccess.item, 1.0);
+            pManager.AddNumberParameter("Parameters", "P", "The gradient's colors parameters", GH_ParamAccess.list, new List<double> { 0, 1 });
             pManager[2].Optional = true;
+            pManager.AddNumberParameter("Angle", "A", "The rotation angle in degrees", GH_ParamAccess.item, 0);
+            pManager[3].Optional = true;
         }
 
         /// <summary>
@@ -54,17 +56,27 @@ namespace Aviary.Wind.GH
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            Wg.Graphic graphic = Wg.Graphics.StrokeBlack;
+            Wg.Graphic graphic = Wg.Graphics.FillBlack;
             if (!DA.GetData(0, ref graphic)) graphic = new Wg.Graphic(graphic);
 
-            Color color = Color.Black;
-            DA.GetData(1, ref color);
+            List<Color> colors = new List<Color>();
+            DA.GetDataList(1, colors);
 
-            double weight = 1.0;
-            DA.GetData(2, ref weight);
+            List<double> stops = new List<double>();
+            DA.GetDataList(2, stops);
 
-            graphic.Stroke.Color= color.ToWindColor();
-            graphic.Stroke.Weight = weight;
+            double angle = 0;
+            DA.GetData(3, ref angle);
+
+            List<Wg.Color> windColors = new List<Wg.Color>();
+            foreach(Color color in colors)
+            {
+                windColors.Add(color.ToWindColor());
+            }
+
+            Wg.GradientLinear gradient = new Wg.GradientLinear(windColors,stops);
+            gradient.Angle = angle;
+            graphic.Fill = gradient;
 
             DA.SetData(0, graphic);
         }
@@ -78,7 +90,7 @@ namespace Aviary.Wind.GH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.Stroke;
+                return Properties.Resources.FillGradientLinear;
             }
         }
 
@@ -87,7 +99,7 @@ namespace Aviary.Wind.GH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("6080b922-a2c1-4fa6-95ff-58f1618a9bc9"); }
+            get { return new Guid("5f94c911-0fd5-486e-817f-ed99ef798526"); }
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wind.GH.Properties {
+namespace Aviary.Wind.GH.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Wind.GH.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Wind.GH.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Aviary.Wind.GH.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace Wind.GH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap EffectBlur24 {
+        internal static System.Drawing.Bitmap Aviary_Logo_sm {
             get {
-                object obj = ResourceManager.GetObject("EffectBlur24", resourceCulture);
+                object obj = ResourceManager.GetObject("Aviary_Logo_sm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Wind.GH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap EffectDropShadow24 {
+        internal static System.Drawing.Bitmap EffectBlur {
             get {
-                object obj = ResourceManager.GetObject("EffectDropShadow24", resourceCulture);
+                object obj = ResourceManager.GetObject("EffectBlur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Wind.GH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FillGradientLinear24 {
+        internal static System.Drawing.Bitmap EffectDropShadow {
             get {
-                object obj = ResourceManager.GetObject("FillGradientLinear24", resourceCulture);
+                object obj = ResourceManager.GetObject("EffectDropShadow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,19 @@ namespace Wind.GH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FillGradientRadial24 {
+        internal static System.Drawing.Bitmap FillGradientLinear {
             get {
-                object obj = ResourceManager.GetObject("FillGradientRadial24", resourceCulture);
+                object obj = ResourceManager.GetObject("FillGradientLinear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FillGradientRadial {
+            get {
+                object obj = ResourceManager.GetObject("FillGradientRadial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -8,8 +8,8 @@
     <ProjectGuid>{919642DC-1481-416E-B86D-883A396E71BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wind.GH</RootNamespace>
-    <AssemblyName>Wind.GH</AssemblyName>
+    <RootNamespace>Aviary.Wind.GH</RootNamespace>
+    <AssemblyName>Aviary.Wind.GH</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Effects\EffectBlur.cs" />
     <Compile Include="Effects\EffectShadow.cs" />
+    <Compile Include="Graphics\GraphicFillLinear.cs" />
+    <Compile Include="Graphics\GraphicFillRadial.cs" />
     <Compile Include="Graphics\GraphicFillSolid.cs" />
     <Compile Include="Graphics\GraphicStroke.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -75,6 +77,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -92,19 +95,22 @@
     <None Include="Resources\FillSolid.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EffectBlur24.png" />
+    <None Include="Resources\EffectBlur.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EffectDropShadow24.png" />
+    <None Include="Resources\EffectDropShadow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FillGradientLinear24.png" />
+    <None Include="Resources\FillGradientLinear.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FillGradientRadial24.png" />
+    <None Include="Resources\FillGradientRadial.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Outputs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aviary-Logo-sm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

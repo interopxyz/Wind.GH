@@ -9,13 +9,13 @@ using Wg = Aviary.Wind.Graphics;
 
 namespace Aviary.Wind.GH
 {
-    public class GraphicFillSolid : GH_Component
+    public class GraphicFillRadial : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GraphicFillSolid class.
+        /// Initializes a new instance of the GraphicFillRadial class.
         /// </summary>
-        public GraphicFillSolid()
-          : base("Solid Fill", "Solid", "Add a solid color fill", "Aviary 1", "Graphics")
+        public GraphicFillRadial()
+          : base("Radial Gradient Fill", "Radial", "Add a radial gradient fill", "Aviary 1", "Graphics")
         {
         }
 
@@ -34,8 +34,16 @@ namespace Aviary.Wind.GH
         {
             pManager.AddGenericParameter("Graphic", "G", "An optional Graphic object", GH_ParamAccess.item);
             pManager[0].Optional = true;
-            pManager.AddColourParameter("Fill Color", "C", "The fill color for the graphic", GH_ParamAccess.item, Color.Black);
+            pManager.AddColourParameter("Gradient Colors", "C", "The gradient colors for the graphic", GH_ParamAccess.list, new List<Color> { Color.Black, Color.White });
             pManager[1].Optional = true;
+            pManager.AddNumberParameter("Parameters", "P", "The gradient's colors parameters", GH_ParamAccess.list, new List<double> { 0, 1 });
+            pManager[2].Optional = true;
+            pManager.AddPointParameter("Center", "CP", "The center point of the gradient", GH_ParamAccess.item, new Point3d(0.5,0.5,0));
+            pManager[3].Optional = true;
+            pManager.AddPointParameter("Focus", "CF", "The focal point of the gradient", GH_ParamAccess.item, new Point3d(0.5, 0.5, 0));
+            pManager[4].Optional = true;
+            pManager.AddNumberParameter("Radius", "R", "The radius of the gradient", GH_ParamAccess.item, 1.0);
+            pManager[5].Optional = true;
         }
 
         /// <summary>
@@ -53,11 +61,36 @@ namespace Aviary.Wind.GH
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             Wg.Graphic graphic = Wg.Graphics.FillBlack;
-            Color color = Color.Black;
             if (!DA.GetData(0, ref graphic)) graphic = new Wg.Graphic(graphic);
-            DA.GetData(1, ref color);
 
-            graphic.Fill.Background = color.ToWindColor();
+            List<Color> colors = new List<Color>();
+            DA.GetDataList(1, colors);
+
+            List<double> stops = new List<double>();
+            DA.GetDataList(2, stops);
+
+            Point3d center = new Point3d(0.5,0.5,0);
+            DA.GetData(3, ref center);
+
+            Point3d focus = new Point3d(0.5, 0.5, 0);
+            DA.GetData(4, ref focus);
+
+            double radius = 1.0;
+            DA.GetData(5, ref radius);
+
+            List<Wg.Color> windColors = new List<Wg.Color>();
+            foreach (Color color in colors)
+            {
+                windColors.Add(color.ToWindColor());
+            }
+
+            Wg.GradientRadial gradient = new Wg.GradientRadial(windColors, stops);
+            gradient.Center = new Wind.Geometry.Point(center.X, center.Y, 0);
+            gradient.Focus = new Wind.Geometry.Point(focus.X, focus.Y, 0);
+            gradient.RadiusX = radius;
+            gradient.RadiusY = radius;
+
+            graphic.Fill = gradient;
 
             DA.SetData(0, graphic);
         }
@@ -71,7 +104,7 @@ namespace Aviary.Wind.GH
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.FillSolid;
+                return Properties.Resources.FillGradientRadial;
             }
         }
 
@@ -80,7 +113,7 @@ namespace Aviary.Wind.GH
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("7213979a-8ec1-4d52-bf2f-b0f22551ea4d"); }
+            get { return new Guid("1abb7fe4-2006-4917-bfeb-b50e2b309b07"); }
         }
     }
 }

@@ -118,17 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="EffectBlur24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EffectBlur24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Aviary_Logo_sm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aviary-Logo-sm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EffectDropShadow24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EffectDropShadow24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EffectBlur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EffectBlur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FillGradientLinear24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FillGradientLinear24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EffectDropShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EffectDropShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FillGradientRadial24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FillGradientRadial24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FillGradientLinear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FillGradientLinear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FillGradientRadial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FillGradientRadial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FillPattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FillPattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
