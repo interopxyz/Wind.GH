@@ -5,17 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{919642DC-1481-416E-B86D-883A396E71BE}</ProjectGuid>
+    <ProjectGuid>{4292AAAA-542B-41AF-BDFE-9A9B498DFFF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Aviary.Wind.GH</RootNamespace>
     <AssemblyName>Aviary.Wind.GH</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -36,13 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GH_IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grasshopper.0.9.76\lib\net35\GH_IO.dll</HintPath>
+      <HintPath>packages\Grasshopper.0.9.76\lib\net35\GH_IO.dll</HintPath>
     </Reference>
     <Reference Include="Grasshopper, Version=1.0.0.20, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grasshopper.0.9.76\lib\net35\Grasshopper.dll</HintPath>
+      <HintPath>packages\Grasshopper.0.9.76\lib\net35\Grasshopper.dll</HintPath>
     </Reference>
     <Reference Include="RhinoCommon, Version=5.1.30000.16, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoCommon.5.12.50810.13095\lib\net35\RhinoCommon.dll</HintPath>
+      <HintPath>packages\RhinoCommon.5.12.50810.13095\lib\net35\RhinoCommon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,46 +53,32 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aviary.Wind.GHInfo.cs" />
     <Compile Include="Effects\EffectBlur.cs" />
     <Compile Include="Effects\EffectShadow.cs" />
     <Compile Include="Graphics\GraphicFillLinear.cs" />
     <Compile Include="Graphics\GraphicFillRadial.cs" />
     <Compile Include="Graphics\GraphicFillSolid.cs" />
     <Compile Include="Graphics\GraphicStroke.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Wind.GHInfo.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Aviary\Wind\Wind\Wind.csproj">
-      <Project>{5b296bd0-780f-4e8a-a7ff-379f437b925a}</Project>
-      <Name>Wind</Name>
-    </ProjectReference>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="Resources\Stroke.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FillGradient.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FillPattern.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FillSolid.png" />
+    <None Include="Resources\Aviary-Logo-sm.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EffectBlur.png" />
@@ -107,10 +93,16 @@
     <None Include="Resources\FillGradientRadial.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Outputs\" />
+    <ProjectReference Include="..\Aviary.Wind\Aviary.Wind\Aviary.Wind.csproj">
+      <Project>{1dcf2e8c-b3e6-4bb9-aedb-ae0e1d4af9f4}</Project>
+      <Name>Aviary.Wind</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Aviary-Logo-sm.png" />
+    <None Include="Resources\FillSolid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stroke.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -133,13 +125,13 @@ Erase "$(TargetPath)"</PostBuildEvent>
     </StartArguments>
     <StartAction>Program</StartAction>
   </PropertyGroup>
-  <Import Project="..\packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets')" />
+  <Import Project="packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets" Condition="Exists('packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets'))" />
-    <Error Condition="!Exists('..\packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets'))" />
+    <Error Condition="!Exists('packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets'))" />
   </Target>
-  <Import Project="..\packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets" Condition="Exists('..\packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets')" />
+  <Import Project="packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets" Condition="Exists('packages\Grasshopper.0.9.76\build\net35\Grasshopper.targets')" />
 </Project>
